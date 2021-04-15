@@ -949,6 +949,8 @@ declare module "alt-client" {
      *
      * @param url URL of the html file.
      * @param pos x, y coordinates of the position.
+     * 
+     * @alpha
      */
     constructor(url: string, pos: IVector2);
 
@@ -958,6 +960,8 @@ declare module "alt-client" {
      * @param url URL of the html file.
      * @param pos x, y coordinates of the position.
      * @param size x, y to define the size.
+     * 
+     * @alpha
      */
     constructor(url: string, pos: IVector2, size: IVector2);
 
@@ -968,6 +972,8 @@ declare module "alt-client" {
      * @param isOverlay true to render as overlay, false to render on game's GUI stage.
      * @param pos x, y coordinates of the position.
      * @param size x, y to define the size.
+     * 
+     * @alpha
      */
     constructor(url: string, isOverlay: boolean, pos: IVector2, size: IVector2);
 
@@ -1196,9 +1202,9 @@ declare module "alt-client" {
     public fScrollSpeed: number;
     public vTilesX: number;
     public vTilesY: number;
-    
+
     constructor(zoomDataId: number);
-    
+
     public static get(zoomData: string): MapZoomData;
 
     public static resetAll(): void;
@@ -1282,7 +1288,7 @@ declare module "alt-client" {
      * Determines whether the microphone input is currently disabled.
      */
     static muteInput: boolean;
-    
+
     /**
      * Determines if the voice activation is enabled.
      * 
@@ -1411,7 +1417,7 @@ declare module "alt-client" {
    * @param key Keycode.
    */
   export function isKeyToggled(key: number): boolean;
-  
+
   /**
    * Determines whether the specified key is pressed.
    *
@@ -1553,28 +1559,28 @@ declare module "alt-client" {
   export function setCamFrozen(state: boolean): void;
 
   /**
-   * Sets the specified config flag to the specified state.
-   * 
+   * Sets the specified ped config flag of the local player to the specified state.
+   *
    * @param flag Config flag name.
    * @param state Config flag state.
    */
-  export function setConfigFlag(flag: string, state: boolean): void;
+  export function setConfigFlag(flag: "DISABLE_PED_PROP_KNOCK_OFF", state: boolean): void;
 
   /**
-   * Returns the state of the specified config flag.
-   * 
+   * Returns the state of the specified ped config flag of the local player.
+   *
    * @param flag Config flag name.
    * @returns State of the specified config flag.
    */
-  export function getConfigFlag(flag: string): boolean;
+  export function getConfigFlag(flag: "DISABLE_PED_PROP_KNOCK_OFF"): boolean;
 
   /**
    * Returns whether the specified config flag exists.
-   * 
+   *
    * @param flag Config flag name.
    * @returns True when the config flag exists.
    */
-  export function doesConfigFlagExist(flag: string): boolean;
+  export function doesConfigFlagExist(flag: "DISABLE_PED_PROP_KNOCK_OFF"): boolean;
 
   /**
    * Sets the current position of the cursor.
@@ -1690,12 +1696,12 @@ declare module "alt-client" {
      * @param protocol Name of the protocol.
      */
     public addSubProtocol(protocol: string): void;
-    
+
     /**
      * Gets all added sub protocols.
      */
     public getSubProtocols(): string[];
-    
+
     /**
      * Sets the specified header to the specified value.
      * 
@@ -1729,7 +1735,7 @@ declare module "alt-client" {
    *
    * @alpha
    */
-   export function unloadYtyp(path: string): boolean;
+  export function unloadYtyp(path: string): boolean;
 
-   export * from "../shared";
+  export * from "../shared";
 }

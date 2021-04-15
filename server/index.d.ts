@@ -1185,12 +1185,42 @@ declare module "alt-server" {
   export function once<S extends string>(event: Exclude<S, keyof IServerEvent>, listener: (...args: any[]) => boolean | void | Promise<boolean | void>): void;
 
   /**
+   * Subscribes a generic event listener.
+   * 
+   * @remarks The generic event listeners get called for every event manually emitted by any resource.
+   * @param listener Listener that should be added.
+   * 
+   * @alpha
+   */
+  export function on(listener: (eventName: string, ...args: any[]) => void): void;
+
+  /**
+   * Subscribes a generic event listener, which only triggers once.
+   * 
+   * @remarks The generic event listeners get called for every event manually emitted by any resource.
+   * @param listener Listener that should be added.
+   * 
+   * @alpha
+   */
+   export function once(listener: (eventName: string, ...args: any[]) => void): void;
+
+  /**
    * Subscribes to client event with specified listener.
    *
    * @param eventName Name of the event.
    * @param listener Listener that should be added.
    */
   export function onClient(eventName: string, listener: (player: Player, ...args: any[]) => void): void;
+
+  /**
+   * Subscribes a generic client event listener.
+   * 
+   * @remarks The generic event listeners get called for every event manually emitted by any client.
+   * @param listener Listener that should be added.
+   * 
+   * @alpha
+   */
+   export function onClient(listener: (eventName: string, player: Player, ...args: any[]) => void): void;
 
   /**
    * Subscribes to client event with specified listener, which only triggers once.
@@ -1201,6 +1231,37 @@ declare module "alt-server" {
   export function onceClient(eventName: string, listener: (player: Player, ...args: any[]) => void): void;
 
   /**
+<<<<<<< HEAD
+=======
+   * Subscribes a generic client event listener, which only triggers once.
+   * 
+   * @remarks The generic event listeners get called for every event manually emitted by any client.
+   * @param listener Listener that should be added.
+   * 
+   * @alpha
+   */
+   export function onceClient(listener: (eventName: string, player: Player, ...args: any[]) => void): void;
+
+  /**
+   * Schedules execution of handler in specified intervals.
+   *
+   * @param handler Handler that should be scheduled for execution.
+   * @param miliseconds The time, in milliseconds, between execution of specified handler.
+   * @returns A number representing the id value of the timer that is set. Use this value with the {@link clearInterval} function to cancel the timer.
+   */
+  export function setInterval(handler: (...args: any[]) => void, miliseconds: number): number;
+
+  /**
+   * Schedules execution of handler once after the expiration of interval.
+   *
+   * @param handler Handler that should be scheduled for execution.
+   * @param miliseconds The time, in milliseconds, before execution of specified handler.
+   * @returns A number representing the id value of the timer that is set. Use this value with the {@link clearTimeout} function to cancel the timer.
+   */
+  export function setTimeout(handler: (...args: any[]) => void, miliseconds: number): number;
+
+  /**
+>>>>>>> master
    * Starts the specified resource.
    * 
    * @param name Name of the resource.
