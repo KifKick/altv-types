@@ -1,6 +1,10 @@
-import { RGBA, Vector3 } from "../shared";
-
+/// <reference types="@altv/types-shared"/>
+/**
+ * @module alt-server
+ */
 declare module "alt-server" {
+  import { Vector3, RGBA } from "alt-shared";
+
   export type DateTimeHour = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
       22 | 23;
   export type DateTimeMinute = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
@@ -1231,8 +1235,6 @@ declare module "alt-server" {
   export function onceClient(eventName: string, listener: (player: Player, ...args: any[]) => void): void;
 
   /**
-<<<<<<< HEAD
-=======
    * Subscribes a generic client event listener, which only triggers once.
    * 
    * @remarks The generic event listeners get called for every event manually emitted by any client.
@@ -1261,7 +1263,6 @@ declare module "alt-server" {
   export function setTimeout(handler: (...args: any[]) => void, miliseconds: number): number;
 
   /**
->>>>>>> master
    * Starts the specified resource.
    * 
    * @param name Name of the resource.
@@ -1282,5 +1283,5 @@ declare module "alt-server" {
    */
   export function stopResource(name: string): void;
 
-  export * from "../shared";
+  export * from "alt-shared";
 }

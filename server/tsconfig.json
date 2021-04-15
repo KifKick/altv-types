@@ -13,7 +13,9 @@
     "typeRoots": [
       "../"
     ],
-    "types": [],
+    "types": [
+      "@altv/types-shared"
+    ],
     "noEmit": true,
     "forceConsistentCasingInFileNames": true
   },

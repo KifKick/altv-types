@@ -1,6 +1,10 @@
-import { IVector2, RGBA, Vector2, Vector3 } from "../shared";
-
+/// <reference types="@altv/types-shared"/>
+/**
+ * @module alt-client
+ */
 declare module "alt-client" {
+  import { IVector2, RGBA, Vector2, Vector3 } from "alt-shared";
+
   export const enum Locale {
     Arabic = "ar",
     Belarusian = "by",
@@ -1737,5 +1741,5 @@ declare module "alt-client" {
    */
   export function unloadYtyp(path: string): boolean;
 
-  export * from "../shared";
+  export * from "alt-shared";
 }
