@@ -1,3 +1,6 @@
+/**
+ * @module alt-shared
+ */
 declare module "alt-shared" {
   export const enum FileEncoding {
     Utf8 = "utf-8",

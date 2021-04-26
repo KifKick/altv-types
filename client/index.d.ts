@@ -3,7 +3,7 @@
  * @module alt-client
  */
 declare module "alt-client" {
-  import { IVector2, RGBA, Vector2, Vector3 } from "alt-shared";
+  import * as shared from "alt-shared";
 
   export const enum Locale {
     Arabic = "ar",
@@ -209,7 +209,7 @@ declare module "alt-client" {
     brakeBiasRear: number;
     brakeForce: number;
     camberStiffnesss: number;
-    centreOfMassOffset: Vector3;
+    centreOfMassOffset: shared.Vector3;
     clutchChangeRateScaleDownShift: number;
     clutchChangeRateScaleUpShift: number;
     collisionDamageMult: number;
@@ -222,7 +222,7 @@ declare module "alt-client" {
     engineDamageMult: number;
     handBrakeForce: number;
     handlingFlags: number;
-    inertiaMultiplier: Vector3;
+    inertiaMultiplier: shared.Vector3;
     initialDragCoeff: number;
     initialDriveForce: number;
     initialDriveGears: number;
@@ -341,20 +341,20 @@ declare module "alt-client" {
     /**
      * Object position
      */
-    public pos: Vector3;
+    public pos: shared.Vector3;
   }
 
   export class Checkpoint extends WorldObject {
     public checkpointType: CheckpointType;
-    public nextPos: Vector3;
+    public nextPos: shared.Vector3;
     public radius: number;
     public height: number;
-    public color: RGBA;
+    public color: shared.RGBA;
 
-    constructor(type: CheckpointType, pos: Vector3, nextPos: Vector3, radius: number, height: number, rgbcolor: RGBA);
+    constructor(type: CheckpointType, pos: shared.Vector3, nextPos: shared.Vector3, radius: number, height: number, rgbcolor: shared.RGBA);
 
     public isEntityIn(entity: Entity): boolean;
-    public isPointIn(pos: Vector3): boolean;
+    public isPointIn(pos: shared.Vector3): boolean;
   }
 
   export class Entity extends WorldObject {
@@ -372,10 +372,10 @@ declare module "alt-client" {
     /**
      * Object position
      */
-    public readonly pos: Vector3;
+    public readonly pos: shared.Vector3;
 
     /** Entity rotation in radians */
-    public readonly rot: Vector3;
+    public readonly rot: shared.Vector3;
 
     public readonly visible: boolean;
 
@@ -514,12 +514,12 @@ declare module "alt-client" {
     /**
      * Position the player is currently aiming at.
      */
-    public readonly aimPos: Vector3;
+    public readonly aimPos: shared.Vector3;
 
     /**
      * Rotation of the head of the player.
      */
-    public readonly headRot: Vector3;
+    public readonly headRot: shared.Vector3;
 
     /**
      * Curent seat the player is sitting in.
@@ -534,7 +534,7 @@ declare module "alt-client" {
     /**
      * The current aim offset of the player.
      */
-    public readonly entityAimOffset: Vector3 | null;
+    public readonly entityAimOffset: shared.Vector3 | null;
 
     /**
      * Is the flashlight of the player activated.
@@ -609,7 +609,7 @@ declare module "alt-client" {
     /**
      * Vehicle speed vector.
      */
-    public readonly speedVector: Vector3;
+    public readonly speedVector: shared.Vector3;
 
     /**
       * Vehicle wheels count.
@@ -649,7 +649,7 @@ declare module "alt-client" {
      *
      * @alpha
      */
-    //public readonly customPrimaryColor: RGBA;
+    //public readonly customPrimaryColor: shared.RGBA;
 
     /**
      * Vehicle secondary color.
@@ -663,7 +663,7 @@ declare module "alt-client" {
      *
      * @alpha
      */
-    //public readonly customSecondaryColor: RGBA;
+    //public readonly customSecondaryColor: shared.RGBA;
 
     /**
      * Vehicle pearl color.
@@ -775,7 +775,7 @@ declare module "alt-client" {
      *
      * @alpha
      */
-    //public readonly neonColor: RGBA;
+    //public readonly neonColor: shared.RGBA;
 
     /**
      * Vehicle livery.
@@ -956,7 +956,7 @@ declare module "alt-client" {
      * 
      * @alpha
      */
-    constructor(url: string, pos: IVector2);
+    constructor(url: string, pos: shared.IVector2);
 
     /**
      * Creates a custom size WebView and specific pos.
@@ -967,7 +967,7 @@ declare module "alt-client" {
      * 
      * @alpha
      */
-    constructor(url: string, pos: IVector2, size: IVector2);
+    constructor(url: string, pos: shared.IVector2, size: shared.IVector2);
 
     /**
      * Creates a custom size WebView and specific pos.
@@ -979,7 +979,7 @@ declare module "alt-client" {
      * 
      * @alpha
      */
-    constructor(url: string, isOverlay: boolean, pos: IVector2, size: IVector2);
+    constructor(url: string, isOverlay: boolean, pos: shared.IVector2, size: shared.IVector2);
 
     /**
      * Creates a WebView rendered on game object.
@@ -1035,7 +1035,7 @@ declare module "alt-client" {
   }
 
   export class Blip extends WorldObject {
-    public static routeColor: RGBA;
+    public static routeColor: shared.RGBA;
 
     public alpha: number;
 
@@ -1083,7 +1083,7 @@ declare module "alt-client" {
 
     public scale: number;
 
-    public secondaryColor: number | RGBA;
+    public secondaryColor: number | shared.RGBA;
 
     public shortRange: boolean;
 
@@ -1091,7 +1091,7 @@ declare module "alt-client" {
 
     public shrinked: boolean;
 
-    public size: Vector2;
+    public size: shared.Vector2;
 
     public sprite: number;
 
@@ -1128,7 +1128,7 @@ declare module "alt-client" {
     public brakeBiasRear: number;
     public brakeForce: number;
     public camberStiffnesss: number;
-    public centreOfMassOffset: Vector3;
+    public centreOfMassOffset: shared.Vector3;
     public clutchChangeRateScaleDownShift: number;
     public clutchChangeRateScaleUpShift: number;
     public collisionDamageMult: number;
@@ -1141,7 +1141,7 @@ declare module "alt-client" {
     public engineDamageMult: number;
     public handBrakeForce: number;
     public handlingFlags: number;
-    public inertiaMultiplier: Vector3;
+    public inertiaMultiplier: shared.Vector3;
     public initialDragCoeff: number;
     public initialDriveForce: number;
     public initialDriveGears: number;
@@ -1339,7 +1339,7 @@ declare module "alt-client" {
   /**
    * Gets the current position of the cursor.
    */
-  export function getCursorPos(): Vector2;
+  export function getCursorPos(): shared.Vector2;
 
   /**
    * Gets the value of the specified GXT entry.
@@ -1591,7 +1591,7 @@ declare module "alt-client" {
    * 
    * @remarks The cursor has to be visible for this to take effect.
    */
-  export function setCursorPos(pos: IVector2): void;
+  export function setCursorPos(pos: shared.IVector2): void;
 
   /**
    * Sets the amount of real milliseconds that have to pass every game minute.

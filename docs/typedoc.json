@@ -1,8 +1,9 @@
 {
   "entryPoints": [
-    "../client",
-    "../server"
+    "client",
+    "server"
   ],
   "excludeExternals": true,
-  "json": "api/.manifest"
+  "disableAliases": true,
+  "json": "docs/api/.manifest"
 }

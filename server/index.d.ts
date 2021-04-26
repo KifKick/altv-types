@@ -3,7 +3,7 @@
  * @module alt-server
  */
 declare module "alt-server" {
-  import { Vector3, RGBA } from "alt-shared";
+  import * as shared from "alt-shared";
 
   export type DateTimeHour = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
       22 | 23;
@@ -367,7 +367,7 @@ declare module "alt-server" {
     consoleCommand: (...args: string[]) => void;
     entityEnterColshape: (colshape: Colshape, entity: Entity) => void;
     entityLeaveColshape: (colshape: Colshape, entity: Entity) => void;
-    explosion: (source: Player, type: ExplosionType, pos: Vector3, fx: number, target: Entity) => boolean | void;
+    explosion: (source: Player, type: ExplosionType, pos: shared.Vector3, fx: number, target: Entity) => boolean | void;
     netOwnerChange: (entity: Entity, owner: Player, oldOwner: Player) => void;
     playerChangedVehicleSeat: (player: Player, vehicle: Vehicle, oldSeat: number, seat: number) => void;
     playerConnect: (player: Player) => void;
@@ -387,14 +387,14 @@ declare module "alt-server" {
     vehicleAttach: (vehicle: Vehicle, attachedVehicle: Vehicle) => void;
     vehicleDestroy: (vehicle: Vehicle) => void;
     vehicleDetach: (vehicle: Vehicle, detachedVehicle: Vehicle) => void;
-    weaponDamage: (source: Player, target: Entity, weaponHash: number, damage: number, offset: Vector3, bodyPart: BodyPart) => boolean | void;
+    weaponDamage: (source: Player, target: Entity, weaponHash: number, damage: number, offset: shared.Vector3, bodyPart: BodyPart) => boolean | void;
     startFire: (player: Player, fires: Array<IFireInfo>) => boolean | void;
-    startProjectile: (player: Player, pos: Vector3, dir: Vector3, ammoHash: number, weaponHash: number) => boolean | void;
+    startProjectile: (player: Player, pos: shared.Vector3, dir: shared.Vector3, ammoHash: number, weaponHash: number) => boolean | void;
     playerWeaponChange: (player: Player, oldWeapon: number, weapon: number) => void;
   }
 
   export interface IFireInfo {
-    pos: Vector3;
+    pos: shared.Vector3;
     weapon: number;
   }
 
@@ -496,7 +496,7 @@ declare module "alt-server" {
     /**
      * Object position.
      */
-    public pos: Vector3;
+    public pos: shared.Vector3;
   }
 
   export class Entity extends WorldObject {
@@ -530,7 +530,7 @@ declare module "alt-server" {
      *
      * @remarks Values are provided in radians.
      */
-    public rot: Vector3;
+    public rot: shared.Vector3;
 
     /**
      * Whether the entity is visible.
@@ -646,7 +646,7 @@ declare module "alt-server" {
     public currentWeapon: number;
     public readonly currentWeaponComponents: Array<number>;
     public readonly currentWeaponTintIndex: number;
-    public readonly entityAimOffset: Vector3;
+    public readonly entityAimOffset: shared.Vector3;
     public readonly entityAimingAt: Entity | null;
     public readonly flashlightActive: boolean;
     public health: number;
@@ -840,8 +840,8 @@ declare module "alt-server" {
     public activeRadioStation: RadioStation;
     public bodyAdditionalHealth: number;
     public bodyHealth: number;
-    public customPrimaryColor: RGBA;
-    public customSecondaryColor: RGBA;
+    public customPrimaryColor: shared.RGBA;
+    public customSecondaryColor: shared.RGBA;
     public customTires: boolean;
     public darkness: number;
     public dashboardColor: number;
@@ -863,7 +863,7 @@ declare module "alt-server" {
     public modKit: number;
     public readonly modKitsCount: number;
     public neon: IVehicleNeon;
-    public neonColor: RGBA;
+    public neonColor: shared.RGBA;
     public readonly nightlightOn: boolean;
     public numberPlateIndex: NumberPlateStyle;
     public numberPlateText: string;
@@ -875,7 +875,7 @@ declare module "alt-server" {
     public roofState: boolean;
     public secondaryColor: number;
     public sirenActive: boolean;
-    public tireSmokeColor: RGBA;
+    public tireSmokeColor: shared.RGBA;
     public wheelColor: number;
     public readonly wheelsCount: number;
     public readonly wheelType: number;
@@ -1012,7 +1012,7 @@ declare module "alt-server" {
 
     public isEntityIn(entity: Entity): boolean;
 
-    public isPointIn(position: Vector3): boolean;
+    public isPointIn(position: shared.Vector3): boolean;
   }
 
   export class ColshapeCylinder extends Colshape {
